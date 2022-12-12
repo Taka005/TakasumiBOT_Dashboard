@@ -1,1 +1,2 @@
-# TakasumiBOT_Dashboard
+# TakasumiBOT Dash
+TakasumiBOT ダッシュボード
