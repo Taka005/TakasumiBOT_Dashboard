@@ -25,7 +25,7 @@ require_once __DIR__."/config.php";
             <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
                 <div class="container-fluid">
                     <a class="navbar-brand text-darl" href="./">
-                        <img src="./assets/img/takasumibot.png" alt="ロゴ" width="30" height="24" class="d-inline-block align-text-top">
+                        <img src="./assets/img/takasumibot.png" alt="ロゴ" width="30" height="30" class="d-inline-block align-text-top">
                         TakasumiBOT
                     </a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false">
@@ -34,10 +34,10 @@ require_once __DIR__."/config.php";
                     <div class="collapse navbar-collapse" id="navbarCollapse">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link active" href="https://bot.taka.ml" target="_blank">導入</a>
+                                <a class="nav-link active" href="https://takasumibot.taka.ml" target="_blank">公式サイト</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active" href="https://takasumibot.taka.ml" target="_blank">公式サイト</a>
+                                <a class="nav-link active" href="https://bot.taka.ml" target="_blank">導入</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link active" href="https://status.taka.ml" target="_blank">ステータス</a>
