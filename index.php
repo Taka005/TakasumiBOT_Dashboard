@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__."/includes/discord.php";
+require_once __DIR__."/system/discord.php";
 require_once __DIR__."/config.php";
 ?>
 <!DOCTYPE html>
@@ -15,32 +15,30 @@ require_once __DIR__."/config.php";
     </head>
     <body>
         <header>
-            <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+            <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
                 <div class="container-fluid">
-                    <a class="navbar-brand text-light" href="./">Protect Discord</a>
+                    <a class="navbar-brand text-darl" href="./">TakasumiBOT</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarCollapse">
-                        <a class="btn btn-sm btn-outline-secondary" href="./terms" role="button">利用規約</a>
-                        <a class="btn btn-sm btn-outline-secondary" href="./privacy-policy" role="button">プライバシーポリシー</a>
-                        <a class="btn btn-sm btn-outline-secondary" href="https://discord.gg/7xHNfqYgxb" target="_blank" role="button">サポートサーバー</a>
+                        <a class="btn btn-sm btn-outline-secondary" href="https://bot.taka.ml" target="_blank" role="button">導入</a>
+                        <a class="btn btn-sm btn-outline-secondary" href="https://takasumibot.taka.ml" target="_blank" role="button">公式サイト</a>
+                        <a class="btn btn-sm btn-outline-secondary" href="https://status.taka.ml" target="_blank" role="button">ステータス</a>
+                        <a class="btn btn-sm btn-outline-secondary" href="https://discord.taka.ml" target="_blank" role="button">サポートサーバー</a>
                     </div>
                     <form class="d-flex">
                         <?php if(!isset($_SESSION["user"])){ ?>
                             <a class="btn btn-outline-success" href="<?= url($client_id,$redirect_url,$scopes) ?>" role="button">ログイン</a>
                         <?php }else{ ?>
-                            <a class="btn btn-outline-danger"  href="./includes/logout" role="button">ログアウト</a>
+                            <a class="btn btn-outline-danger"  href="./system/logout" role="button">ログアウト</a>
                         <?php } ?>
                     </form>
                 </div>
             </nav>
         </header>
 	    <main>    
-            <form action="./search" method="get" class="mb-4 position-absolute top-50 start-50 translate-middle">
-            <label for="exampleFormControlInput1" class="form-label text-center text-light display-4">Protect Discord</label>
-                <input name="id" type="number" class="form-control form-control-lg" placeholder="検索するユーザーID" autocomplete="off" require_onced>
-            </form>
+            
 	    </main>   
         <script src="./assets/js/script.js"></script>
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
