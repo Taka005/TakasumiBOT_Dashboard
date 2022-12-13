@@ -59,7 +59,7 @@ require_once __DIR__."/config.php";
                                     <li><a class="dropdown-item" href="./account">アカウント</a></li>
                                     <li><hr class="dropdown-divider"></li>
                                     <li><a class="dropdown-item text-danger" href="./system/logout">ログアウト</a></li>
-                                    <li><a class="dropdown-item text-primary" href="<?= url($client_id,$redirect_url,$scopes) ?>">同期</a></li>
+                                    <li><a class="dropdown-item text-primary" href="<?= url($client_id,$redirect_url,$scopes) ?>">データ同期</a></li>
                                 </ul>
                             </div>
                         <?php } ?>
