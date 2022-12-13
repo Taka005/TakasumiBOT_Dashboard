@@ -38,7 +38,16 @@ require_once __DIR__."/config.php";
                         <?php if(!isset($_SESSION["user"])){ ?>
                             <a class="btn btn-outline-success" href="<?= url($client_id,$redirect_url,$scopes) ?>" role="button">ログイン</a>
                         <?php }else{ ?>
-                            <a class="btn btn-outline-danger"  href="./system/logout" role="button">ログアウト</a>
+                            <div class="dropdown">
+                                <button class="btn btn-outline-success dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <?= $_SESSION["username"].$_SESSION["discrim"] ?>
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                    <li><a class="dropdown-item" href="./account">アカウント</a></li>
+                                    <li><a class="dropdown-item" href="./system/logout">ログアウト</a></li>
+                                    <li><a class="dropdown-item" href="<?= url($client_id,$redirect_url,$scopes) ?>">同期</a></li>
+                                </ul>
+                            </div>
                         <?php } ?>
                     </form>
                 </div>
