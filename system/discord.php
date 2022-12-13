@@ -61,4 +61,17 @@ function get_user(){
         sql("INSERT INTO account (id, time) VALUES(".$results["id"].",NOW()) ON DUPLICATE KEY UPDATE id = VALUES (id),time = VALUES (time);"); 
     }
 }
+
+function get_guilds(){
+    $url = $GLOBALS["base_url"]."/api/users/@me/guilds";
+    $headers = array("Content-Type: application/x-www-form-urlencoded","Authorization: Bearer ".$_SESSION["access_token"]);
+    $curl = curl_init();
+    curl_setopt($curl,CURLOPT_URL,$url);
+    curl_setopt($curl,CURLOPT_RETURNTRANSFER,true);
+    curl_setopt($curl,CURLOPT_HTTPHEADER,$headers);
+    $response = curl_exec($curl);
+    curl_close($curl);
+    $results = json_decode($response,true);
+    $_SESSION["guilds"] = $results;
+}
 ?>
