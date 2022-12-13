@@ -24,15 +24,28 @@ require_once __DIR__."/config.php";
         <header>
             <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
                 <div class="container-fluid">
-                    <a class="navbar-brand text-darl" href="./">TakasumiBOT</a>
+                    <a class="navbar-brand text-darl" href="./">
+                        <img src="./assets/img/takasumibot.png" alt="ロゴ" width="30" height="24" class="d-inline-block align-text-top">
+                        TakasumiBOT
+                    </a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarCollapse">
-                        <a class="btn btn-sm btn-outline-secondary" href="https://bot.taka.ml" target="_blank" role="button">導入</a>
-                        <a class="btn btn-sm btn-outline-secondary" href="https://takasumibot.taka.ml" target="_blank" role="button">公式サイト</a>
-                        <a class="btn btn-sm btn-outline-secondary" href="https://status.taka.ml" target="_blank" role="button">ステータス</a>
-                        <a class="btn btn-sm btn-outline-secondary" href="https://discord.taka.ml" target="_blank" role="button">サポートサーバー</a>
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="https://bot.taka.ml" target="_blank">導入</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="https://takasumibot.taka.ml" target="_blank">公式サイト</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="https://status.taka.ml" target="_blank">ステータス</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="https://discord.taka.ml" target="_blank">サポートサーバー</a>
+                            </li>
+                        </ul>   
                     </div>
                     <form class="d-flex">
                         <?php if(!isset($_SESSION["user"])){ ?>
@@ -40,12 +53,13 @@ require_once __DIR__."/config.php";
                         <?php }else{ ?>
                             <div class="dropdown">
                                 <button class="btn btn-outline-success dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <?= $_SESSION["username"].$_SESSION["discrim"] ?>
+                                    <?= $_SESSION["username"]."#".$_SESSION["discrim"] ?>
                                 </button>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                     <li><a class="dropdown-item" href="./account">アカウント</a></li>
-                                    <li><a class="dropdown-item" href="./system/logout">ログアウト</a></li>
-                                    <li><a class="dropdown-item" href="<?= url($client_id,$redirect_url,$scopes) ?>">同期</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item text-danger" href="./system/logout">ログアウト</a></li>
+                                    <li><a class="dropdown-item text-primary" href="<?= url($client_id,$redirect_url,$scopes) ?>">同期</a></li>
                                 </ul>
                             </div>
                         <?php } ?>
