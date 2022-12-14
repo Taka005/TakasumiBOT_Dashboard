@@ -6,4 +6,6 @@ $secret_id = "";
 $scopes = "identify";
 
 $redirect_url = "";
+
+$token = "";
 ?>
