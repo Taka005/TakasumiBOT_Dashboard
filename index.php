@@ -70,10 +70,13 @@ require_once __DIR__."/system/lib.php";
         </header>
 	    <main>
             <?php if(isset($_SESSION["user"])&&isset($_SESSION["guilds"])){ ?>
+                <div class="mb-4 position-absolute top-50 start-50 translate-middle">
+                    <h1 class="text-center text-dark">サーバー一覧</h1>
+                </dev>
                 <div class="row">
                     <?php foreach($_SESSION["guilds"] as $row){ ?>
                         <div class="col-sm-6">
-                            <div class="card" style="width: 18rem;" >
+                            <div class="card" style="width: 12rem;" >
                                 <img src="<?= "https:\/\/cdn.discordapp.com/icons/".$row["id"]."/".$row["icon"].is_animated($row["icon"])."?size=512" ?>" class="card-img-top img-responsive">
                                 <div class="card-body">
                                     <h5 class="card-title"><?= $row["name"] ?></h5>
