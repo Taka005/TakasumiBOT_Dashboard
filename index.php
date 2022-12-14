@@ -71,7 +71,9 @@ require_once __DIR__."/config.php";
             <?php if(isset($_SESSION["user"])){ ?>
 
             <?php }else{ ?>
-
+                <div class="mb-4 position-absolute top-50 start-50 translate-middle">
+                    <h1 class="text-center text-dark">ログインしてください</h1>
+                </dev>
             <?php } ?>
 	    </main>
         <script src="./assets/js/script.js"></script>
