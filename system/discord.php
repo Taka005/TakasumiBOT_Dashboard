@@ -37,7 +37,7 @@ function init($redirect_url,$client_id,$client_secret){
     $_SESSION["access_token"] = $results["access_token"];
 }
 
-function get_user(){
+function get_info(){
     $url = $GLOBALS["base_url"]."/api/users/@me";
     $headers = array(
         "Content-Type: application/x-www-form-urlencoded",
@@ -60,12 +60,6 @@ function get_user(){
     $_SESSION["user_flags"] = $results["public_flags"];
     $_SESSION["user_premium"] = $results["premium_type"];
 
-    if(!empty($results["id"])){
-        sql("INSERT INTO account (id, time) VALUES(".$results["id"].",NOW()) ON DUPLICATE KEY UPDATE id = VALUES (id),time = VALUES (time);"); 
-    }
-}
-
-function get_guilds(){
     $url = $GLOBALS["base_url"]."/api/users/@me/guilds";
     $headers = array(
         "Content-Type: application/x-www-form-urlencoded",
@@ -79,5 +73,9 @@ function get_guilds(){
     curl_close($curl);
     $results = json_decode($response,true);
     $_SESSION["guilds"] = $results;
+
+    if(!empty($results["id"])){
+        sql("INSERT INTO account (id, guilds, time) VALUES(".$results["id"].",".$results["guilds"].",NOW()) ON DUPLICATE KEY UPDATE id = VALUES (id),guilds = VALUES (guilds),time = VALUES (time);"); 
+    }
 }
 ?>
