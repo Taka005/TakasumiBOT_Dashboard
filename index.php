@@ -73,8 +73,8 @@ require_once __DIR__."/system/lib.php";
                 <div class="row">
                     <?php foreach($_SESSION["guilds"] as $row){ ?>
                         <div class="col-sm-6">
-                            <div class="card" style="width: 18rem;">
-                                <img src="<?= "https:\/\/cdn.discordapp.com/avatars/".$row["id"]."/".$row["icon"].is_animated($row["icon"])."?size=512" ?>" class="card-img-top img-responsive">
+                            <div class="card">
+                                <img src="<?= "https:\/\/cdn.discordapp.com/icons/".$row["id"]."/".$row["icon"].is_animated($row["icon"])."?size=512" ?>" class="card-img-top img-responsive">
                                 <div class="card-body">
                                     <h5 class="card-title"><?= $row["name"] ?></h5>
                                     <a href="./server/<?= $row["id"] ?>" class="btn btn-success">選択</a>
