@@ -69,11 +69,11 @@ require_once __DIR__."/system/lib.php";
             </nav>
         </header>
 	    <main>
-            <?php if(isset($_SESSION["user"])){ ?>
+            <?php if(isset($_SESSION["user"])&&isset($_SESSION["guilds"])){ ?>
                 <div class="row">
                     <?php foreach($_SESSION["guilds"] as $row){ ?>
                         <div class="col-sm-6">
-                            <div class="card">
+                            <div class="card" style="width: 18rem;" >
                                 <img src="<?= "https:\/\/cdn.discordapp.com/icons/".$row["id"]."/".$row["icon"].is_animated($row["icon"])."?size=512" ?>" class="card-img-top img-responsive">
                                 <div class="card-body">
                                     <h5 class="card-title"><?= $row["name"] ?></h5>
