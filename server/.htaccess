@@ -1,0 +1,6 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+RewriteRule ^(.*)/$ id.php?server=$1 [QSA,L]
+RewriteRule ^(.*)$ id.php?server=$1 [QSA,L]
+</IfModule>
