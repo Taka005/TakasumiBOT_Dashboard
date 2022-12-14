@@ -69,7 +69,18 @@ require_once __DIR__."/config.php";
         </header>
 	    <main>
             <?php if(isset($_SESSION["user"])){ ?>
-
+                <div class="row">
+                    <?php foreach($_SESSION["guilds"] as $row){ ?>
+                        <div class="col-sm-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title"><?= $row["name"] ?></h5>
+                                    <a href="./server/<?= $row["id"] ?>" class="btn btn-success">選択</a>
+                                </div>
+                            </div>
+                        </div>
+                    <?php } ?>
+                </div>
             <?php }else{ ?>
                 <div class="mb-4 position-absolute top-50 start-50 translate-middle">
                     <h1 class="text-center text-dark">ログインしてください</h1>
