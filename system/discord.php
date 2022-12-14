@@ -39,7 +39,10 @@ function init($redirect_url,$client_id,$client_secret){
 
 function get_user(){
     $url = $GLOBALS["base_url"]."/api/users/@me";
-    $headers = array("Content-Type: application/x-www-form-urlencoded","Authorization: Bearer ".$_SESSION["access_token"]);
+    $headers = array(
+        "Content-Type: application/x-www-form-urlencoded",
+        "Authorization: Bearer ".$_SESSION["access_token"]
+    );
     $curl = curl_init();
     curl_setopt($curl,CURLOPT_URL,$url);
     curl_setopt($curl,CURLOPT_RETURNTRANSFER,true);
@@ -64,7 +67,10 @@ function get_user(){
 
 function get_guilds(){
     $url = $GLOBALS["base_url"]."/api/users/@me/guilds";
-    $headers = array("Content-Type: application/x-www-form-urlencoded","Authorization: Bearer ".$_SESSION["access_token"]);
+    $headers = array(
+        "Content-Type: application/x-www-form-urlencoded",
+        "Authorization: Bearer ".$_SESSION["access_token"]
+    );
     $curl = curl_init();
     curl_setopt($curl,CURLOPT_URL,$url);
     curl_setopt($curl,CURLOPT_RETURNTRANSFER,true);
