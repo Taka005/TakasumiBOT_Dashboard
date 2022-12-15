@@ -71,10 +71,10 @@ require_once __DIR__."/system/lib.php";
 	    <main>
             <div class="container">
                 <?php if(isset($_SESSION["user"])&&isset($_SESSION["guilds"])){ ?>
-                    <div class="row row-cols-4 row-cols-md-4 g-4">
+                    <div class="row row-cols-4 row-cols-md-4 g-4" style="margin-top: 80px;">
                         <?php foreach($_SESSION["guilds"] as $row){ ?>
                             <div class="col">
-                                <div class="card text-center" style="width: 12rem;" >
+                                <div class="card text-center">
                                     <img src="<?= "https:\/\/cdn.discordapp.com/icons/".$row["id"]."/".$row["icon"].is_animated($row["icon"])."?size=512" ?>" class="card-img-top img-responsive">
                                     <div class="card-body">
                                         <h5 class="card-title"><?= htmlspecialchars($row["name"]) ?></h5>
