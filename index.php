@@ -70,10 +70,7 @@ require_once __DIR__."/system/lib.php";
         </header>
 	    <main>
             <?php if(isset($_SESSION["user"])&&isset($_SESSION["guilds"])){ ?>
-                <div class="mb-4 position-absolute top-50 start-50 translate-middle">
-                    <h1 class="text-center text-dark">サーバー一覧</h1>
-                </dev>
-                <div class="row row-cols-3 row-cols-md-2 g-4">
+                <div class="row row-cols-4 row-cols-md-4 g-4">
                     <?php foreach($_SESSION["guilds"] as $row){ ?>
                         <div class="col-sm-6">
                             <div class="card text-center" style="width: 12rem;" >
