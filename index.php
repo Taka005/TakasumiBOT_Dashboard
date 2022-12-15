@@ -69,25 +69,27 @@ require_once __DIR__."/system/lib.php";
             </nav>
         </header>
 	    <main>
-            <?php if(isset($_SESSION["user"])&&isset($_SESSION["guilds"])){ ?>
-                <div class="row row-cols-4 row-cols-md-4 g-4">
-                    <?php foreach($_SESSION["guilds"] as $row){ ?>
-                        <div class="col">
-                            <div class="card text-center" style="width: 12rem;" >
-                                <img src="<?= "https:\/\/cdn.discordapp.com/icons/".$row["id"]."/".$row["icon"].is_animated($row["icon"])."?size=512" ?>" class="card-img-top img-responsive">
-                                <div class="card-body">
-                                    <h5 class="card-title"><?= htmlspecialchars($row["name"]) ?></h5>
-                                    <a href="./server/<?= $row["id"] ?>" class="btn btn-success">選択</a>
+            <div class="container">
+                <?php if(isset($_SESSION["user"])&&isset($_SESSION["guilds"])){ ?>
+                    <div class="row row-cols-4 row-cols-md-4 g-4">
+                        <?php foreach($_SESSION["guilds"] as $row){ ?>
+                            <div class="col">
+                                <div class="card text-center" style="width: 12rem;" >
+                                    <img src="<?= "https:\/\/cdn.discordapp.com/icons/".$row["id"]."/".$row["icon"].is_animated($row["icon"])."?size=512" ?>" class="card-img-top img-responsive">
+                                    <div class="card-body">
+                                        <h5 class="card-title"><?= htmlspecialchars($row["name"]) ?></h5>
+                                        <a href="./server/<?= $row["id"] ?>" class="btn btn-success">選択</a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    <?php } ?>
-                </div>
-            <?php }else{ ?>
-                <div class="mb-4 position-absolute top-50 start-50 translate-middle">
-                    <h1 class="text-center text-dark">ログインしてください</h1>
-                </dev>
-            <?php } ?>
+                        <?php } ?>
+                    </div>
+                <?php }else{ ?>
+                    <div class="mb-4 position-absolute top-50 start-50 translate-middle">
+                        <h1 class="text-center text-dark">ログインしてください</h1>
+                    </dev>
+                <?php } ?>
+            </div>
 	    </main>
         <script src="./assets/js/script.js"></script>
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
