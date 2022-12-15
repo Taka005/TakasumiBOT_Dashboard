@@ -1,7 +1,7 @@
 <?php
-require_once __DIR__."/system/discord.php";
-require_once __DIR__."/config.php";
-require_once __DIR__."/system/lib.php";
+require_once __DIR__."/../system/discord.php";
+require_once __DIR__."/../config.php";
+require_once __DIR__."/../system/lib.php";
 ?>
 <!DOCTYPE html>
 <html lang="ja">
