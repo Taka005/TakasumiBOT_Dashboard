@@ -73,7 +73,7 @@ require_once __DIR__."/system/lib.php";
                 <div class="mb-4 position-absolute top-50 start-50 translate-middle">
                     <h1 class="text-center text-dark">サーバー一覧</h1>
                 </dev>
-                <div class="row">
+                <div class="row row-cols-1 row-cols-md-2 g-4">
                     <?php foreach($_SESSION["guilds"] as $row){ ?>
                         <div class="col-sm-6">
                             <div class="card" style="width: 12rem;" >
