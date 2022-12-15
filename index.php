@@ -79,7 +79,7 @@ require_once __DIR__."/system/lib.php";
                             <div class="card text-center" style="width: 12rem;" >
                                 <img src="<?= "https:\/\/cdn.discordapp.com/icons/".$row["id"]."/".$row["icon"].is_animated($row["icon"])."?size=512" ?>" class="card-img-top img-responsive">
                                 <div class="card-body">
-                                    <h5 class="card-title"><?= $row["name"] ?></h5>
+                                    <h5 class="card-title"><?= htmlspecialchars($row["name"]) ?></h5>
                                     <a href="./server/<?= $row["id"] ?>" class="btn btn-success">選択</a>
                                 </div>
                             </div>
