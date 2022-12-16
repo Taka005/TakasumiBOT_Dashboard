@@ -80,4 +80,21 @@ function get_guilds(){
     $results = json_decode($response,true);
     $_SESSION["guilds"] = $results;
 }
+
+function get_guild($id,$token){
+    $url = $GLOBALS["base_url"]."/api/guilds/".$id;
+    $headers = array(
+        "Content-Type: application/x-www-form-urlencoded",
+        "Authorization: Bot ".$token
+    );
+    $curl = curl_init();
+    curl_setopt($curl,CURLOPT_URL,$url);
+    curl_setopt($curl,CURLOPT_RETURNTRANSFER,true);
+    curl_setopt($curl,CURLOPT_HTTPHEADER,$headers);
+    $response = curl_exec($curl);
+    curl_close($curl);
+    $results = json_decode($response, true);
+    return $results;
+}
+
 ?>
