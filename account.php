@@ -3,7 +3,7 @@ require_once __DIR__."/system/discord.php";
 require_once __DIR__."/config.php";
 require_once __DIR__."/system/lib.php";
 
-if(isset($_SESSION["user"]&&isset($_SESSION["guilds"]))){
+if(!isset($_SESSION["user"])&&!isset($_SESSION["guilds"])){
     header("Location: ".url($client_id,$redirect_url,$scopes));
 }
 
