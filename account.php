@@ -75,13 +75,7 @@ if(!isset($_SESSION["user"])&&!isset($_SESSION["guilds"])){
         </header>
 	    <main>
             <div class="container">
-                <?php if(isset($_SESSION["user"])&&isset($_SESSION["guilds"])){ ?>
-                    
-                <?php }else{ ?>
-                    <div class="mb-4 position-absolute top-50 start-50 translate-middle">
-                        <h1 class="text-center text-dark">ログインしてください</h1>
-                    </dev>
-                <?php } ?>
+
             </div>
 	    </main>
         <script src="./assets/js/script.js"></script>

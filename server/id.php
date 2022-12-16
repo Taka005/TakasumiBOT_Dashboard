@@ -6,6 +6,15 @@ require_once __DIR__."/../system/lib.php";
 if(!isset($_SESSION["user"])&&!isset($_SESSION["guilds"])){
     header("Location: ".url($client_id,$redirect_url,$scopes));
 }
+
+if(!isset($_GET["server"])){
+    header("Location: ../");
+}else{
+    $guild = get_guild(htmlspecialchars($_GET["server"]),$token)
+    if(!isset($guild)){
+        header("Location: ../");
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -74,13 +83,7 @@ if(!isset($_SESSION["user"])&&!isset($_SESSION["guilds"])){
         </header>
 	    <main>
             <div class="container">
-                <?php if(isset($_SESSION["user"])&&isset($_SESSION["guilds"])){ ?>
-                    
-                <?php }else{ ?>
-                    <div class="mb-4 position-absolute top-50 start-50 translate-middle">
-                        <h1 class="text-center text-dark">ログインしてください</h1>
-                    </dev>
-                <?php } ?>
+                
             </div>
 	    </main>
         <script src="../assets/js/script.js"></script>
