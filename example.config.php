@@ -1,11 +1,15 @@
 <?php
-$client_id = "";
-
-$secret_id = "";
-
-$scopes = "identify";
-
-$redirect_url = "";
-
-$token = "";
+return array(
+    "clientId"=>"",
+    "secretId"=>"",
+    "scopes"=>"identify+guilds",
+    "redirectURL"=>"",
+    "token"=>"",
+    "db"=>array(
+        "host"=>"",
+        "name"=>"",
+        "user"=>"",
+        "password"=>""
+    )
+);
 ?>
