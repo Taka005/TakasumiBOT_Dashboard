@@ -5,7 +5,7 @@ header("Content-Type: application/json");
 header("Access-Control-Allow-Origin: *");
 
 if($_SESSION["token"]){
-    $data = getGuilds();
+    $data = getUser();
     if(!$data["message"]){
         $res["data"] = $data;
     }else{

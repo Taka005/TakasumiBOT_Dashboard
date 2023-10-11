@@ -12,7 +12,7 @@ function OauthURL(){
 }
 
 function Oauth(){
-    if(!isset($_GET["code"])) return;
+    if(!$_GET["code"]) return;
 
     $res = POST(
         "https://discordapp.com/api/oauth2/token",
@@ -31,7 +31,7 @@ function Oauth(){
 }
 
 function getUser(){
-    if(!isset($_SESSION["token"])) return;
+    if(!$_SESSION["token"]) return;
 
     $res = GET(
         "https://discordapp.com/api/users/@me",
@@ -46,14 +46,14 @@ function getUser(){
     $_SESSION["avatar"] = !empty($res["avatar"]) ? "https://cdn.discordapp.com/avatars/".$res["id"]."/".$res["avatar"].animate($res["avatar"]) : "https://cdn.discordapp.com/embed/avatars/0.png";
 
     if($res["id"]){
-        db::query("INSERT INTO account (id, ip, time) VALUES(".$res["id"].",'".$_SERVER["REMOTE_ADDR"]."',NOW()) ON DUPLICATE KEY UPDATE id = VALUES (id),ip = VALUES (ip),time = VALUES (time);"); 
+        DB::query("INSERT INTO account (id, ip, time) VALUES(".$res["id"].",'".$_SERVER["REMOTE_ADDR"]."',NOW()) ON DUPLICATE KEY UPDATE id = VALUES (id),ip = VALUES (ip),time = VALUES (time);"); 
     }
 
     return $res;
 }
 
 function getGuilds(){
-    if(!isset($_SESSION["token"])) return;
+    if(!$_SESSION["token"]) return;
 
     $res = GET(
         "https://discordapp.com/api/users/@me/guilds",
@@ -69,7 +69,9 @@ function getGuilds(){
 }
 
 function getGuild($guildId){
-    if(!isset($guildId)) return;
+    if(!$guildId) return;
+
+    if($_SESSION["guild"][$guildId]) return $_SESSION["guild"][$guildId];
 
     $res = GET(
         "https://discordapp.com/api/guilds/".$guildId,
@@ -80,6 +82,61 @@ function getGuild($guildId){
     );
 
     $_SESSION["guild"][$guildId] = $res;
+
+    return $res;
+}
+
+function getChannels($guildId){
+    if(!$guildId) return;
+
+    if($_SESSION["channels"][$guildId]) return $_SESSION["channels"][$guildId];
+
+
+    $res = GET(
+        "https://discordapp.com/api/guilds/".$guildId."/channels",
+        array(
+            "Content-Type: application/x-www-form-urlencoded",
+            "Authorization: Bot ".$config["token"]
+        )
+    );
+
+    $_SESSION["channels"][$guildId] = $res;
+
+    return $res;
+}
+
+function getMember($guildId,$userId){
+    if(!$guildId||!$userId) return;
+
+    if($_SESSION["members"][$guildId][$userId]) return $_SESSION["members"][$guildId][$userId];
+
+    $res = GET(
+        "https://discordapp.com/api/guilds/".$guildId."/members/".$userId,
+        array(
+            "Content-Type: application/x-www-form-urlencoded",
+            "Authorization: Bot ".$config["token"]
+        )
+    );
+
+    $_SESSION["members"][$guildId][$userId] = $res;
+
+    return $res;
+}
+
+function getRoles($guildId){
+    if(!isset($guildId)) return;
+
+    if($_SESSION["roles"][$guildId]) return $_SESSION["roles"][$guildId];
+
+    $res = GET(
+        "https://discordapp.com/api/guilds/".$guildId."/roles",
+        array(
+            "Content-Type: application/x-www-form-urlencoded",
+            "Authorization: Bot ".$config["token"]
+        )
+    );
+
+    $_SESSION["roles"][$guildId] = $res;
 
     return $res;
 }

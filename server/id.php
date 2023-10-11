@@ -1,3 +1,11 @@
+<?php
+require_once __DIR__."/system/discord.php";
+
+if(!$_SESSION["token"]){
+    header("Location: ".OauthURL());
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="ja">
     <head>

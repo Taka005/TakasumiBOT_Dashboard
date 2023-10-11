@@ -1,5 +1,10 @@
 <?php
 require_once __DIR__."/system/discord.php";
+
+if(!$_SESSION["token"]){
+    header("Location: ".OauthURL());
+    exit;
+}
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -20,6 +25,7 @@ require_once __DIR__."/system/discord.php";
         <link rel="stylesheet" href="./assets/css/style.css">
     </head>
     <body>
-
+       
     </body>
+    <script src="../assets/js/script.js"></script>
 </html>
