@@ -2,7 +2,7 @@
 return array(
     "clientId"=>"",
     "secretId"=>"",
-    "scopes"=>"identify+guilds",
+    "scope"=>"identify+guilds",
     "redirectURL"=>"",
     "token"=>"",
     "db"=>array(

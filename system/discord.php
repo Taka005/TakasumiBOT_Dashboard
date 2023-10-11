@@ -8,6 +8,7 @@ $config = require_once __DIR__."/../config.php";
 session_start();
 
 function OauthURL(){
+    $config = require_once __DIR__."/../config.php";
     return "https://discordapp.com/oauth2/authorize?response_type=code&client_id=".$config["clientId"]."&redirect_uri=".$config["redirectURL"]."&scope=".$config["scope"];
 }
 
