@@ -3,26 +3,23 @@ require_once __DIR__."/../lib/request.php";
 require_once __DIR__."/../lib/db.php";
 require_once __DIR__."/../lib/utils.php";
 
-$config = require_once __DIR__."/../config.php";
-
 session_start();
 
-function OauthURL(){
-    $config = require_once __DIR__."/../config.php";
-    return "https://discordapp.com/oauth2/authorize?response_type=code&client_id=".$config["clientId"]."&redirect_uri=".$config["redirectURL"]."&scope=".$config["scope"];
+function OauthURL($clientId,$redirectURL,$scope){
+    return "https://discordapp.com/oauth2/authorize?response_type=code&client_id=".$clientId."&redirect_uri=".$redirectURL."&scope=".$scope;
 }
 
-function Oauth(){
+function Oauth($clientId,$secretId,$redirectURL){
     if(!$_GET["code"]) return;
 
     $res = POST(
         "https://discordapp.com/api/oauth2/token",
         array(
-            "client_id"=>$config["clientId"],
-            "client_secret"=>$config["secretId"],
+            "client_id"=>$clientId,
+            "client_secret"=>$secretId,
             "grant_type"=>"authorization_code",
             "code"=>$_GET["code"],
-            "redirect_uri"=>$config["redirectURL"]
+            "redirect_uri"=>$redirectURL
         )
     );
 
