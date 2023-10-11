@@ -10,7 +10,7 @@ function OauthURL($clientId,$redirectURL,$scope){
 }
 
 function Oauth($clientId,$secretId,$redirectURL){
-    if(!isset($_GET["code"])) return;
+    if(!$_GET["code"]) return;
 
     $res = POST(
         "https://discordapp.com/api/oauth2/token",
@@ -29,7 +29,7 @@ function Oauth($clientId,$secretId,$redirectURL){
 }
 
 function getUser(){
-    if(!isset($_SESSION["token"])) return;
+    if(!$_SESSION["token"]) return;
 
     $res = GET(
         "https://discordapp.com/api/users/@me",
@@ -51,7 +51,7 @@ function getUser(){
 }
 
 function getGuilds(){
-    if(!isset($_SESSION["token"])) return;
+    if(!$_SESSION["token"]) return;
 
     $res = GET(
         "https://discordapp.com/api/users/@me/guilds",
@@ -67,7 +67,7 @@ function getGuilds(){
 }
 
 function getGuild($guildId){
-    if(!isset($guildId)) return;
+    if(!$guildId) return;
 
     if($_SESSION["guild"][$guildId]) return $_SESSION["guild"][$guildId];
 
@@ -85,7 +85,7 @@ function getGuild($guildId){
 }
 
 function getChannels($guildId){
-    if(!isset($guildId)) return;
+    if(!$guildId) return;
 
     if($_SESSION["channels"][$guildId]) return $_SESSION["channels"][$guildId];
 
@@ -104,7 +104,7 @@ function getChannels($guildId){
 }
 
 function getMember($guildId,$userId){
-    if(!isset($guildId)||!isset($userId)) return;
+    if(!$guildId||!$userId) return;
 
     if($_SESSION["members"][$guildId][$userId]) return $_SESSION["members"][$guildId][$userId];
 
@@ -122,7 +122,7 @@ function getMember($guildId,$userId){
 }
 
 function getRoles($guildId){
-    if(!isset($guildId)) return;
+    if(!$guildId) return;
 
     if($_SESSION["roles"][$guildId]) return $_SESSION["roles"][$guildId];
 

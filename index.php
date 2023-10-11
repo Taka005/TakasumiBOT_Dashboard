@@ -2,7 +2,7 @@
 require_once __DIR__."/system/discord.php";
 $config = require_once __DIR__."/config.php";
 
-if(!isset($_SESSION["token"])){
+if(!$_SESSION["token"]){
     header("Location: ".OauthURL($config["clientId"],$config["redirectURL"],$config["scope"]));
     exit;
 }
