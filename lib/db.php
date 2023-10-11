@@ -5,7 +5,7 @@ class DB{
     public static function connect(){
         if(self::$pdo === null){
             $config = require_once __DIR__."/../config.php";
-            self::$pdo = new PDO("mysql:host=".$config["db"]["host"].";dbname=".$config["db"]["name"].";charset=utf8mb4",$config["db"]["user"],$config["db"]["password"]);
+            self::$pdo = new PDO("mysql:host=".$config["db_host"].";dbname=".$config["db_name"].";charset=utf8mb4",$config["db_user"],$config["db_password"]);
         }
         return self::$pdo;
     }
