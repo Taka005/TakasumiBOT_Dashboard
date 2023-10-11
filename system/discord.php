@@ -3,7 +3,7 @@ require_once __DIR__."/../lib/request.php";
 require_once __DIR__."/../lib/db.php";
 require_once __DIR__."/../lib/utils.php";
 
-$config = require_once __DIR__."../config.php";
+$config = require_once __DIR__."/../config.php";
 
 session_start();
 
